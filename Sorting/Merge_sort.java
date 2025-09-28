@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Merge_sort{
+    
+      public static  Scanner sc = new Scanner(System.in);
+      public static int[] init(){
+         Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the array:");
+        int size = sc.nextInt();
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            System.out.println("enter the data:");
+            arr[i] = sc.nextInt();
+        }
+   return arr;
+    } 
+     public static void merge_sort(int arr[]){
+         int mid = arr.length/2;
+         int left[] = new int[mid];
+         int right[]=new int[arr.length-mid];
+
+         for(int i=0;i<arr.length;i++){
+            if(i<mid){
+                left[i] = arr[i];
+            }
+            else{
+                right[i-mid]=arr[i];
+            }
+           
+         }
+         display(left);
+         display(right);
+       
+     }
+     public static void display(int[] arr) {
+        System.out.println("Array Elements Are");
+         System.out.print("[");
+         for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i] );
+            if(arr.length-1!=i)
+             System.out.print(",");
+        }
+        System.out.print("]");
+        System.out.println("");
+
+}
+   
+ public static void main(String[] args) {
+     int arr[] = init();
+     display(arr);
+     merge_sort(arr);  
+ }
+}
